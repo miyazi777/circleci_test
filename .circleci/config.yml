@@ -6,3 +6,6 @@ jobs:
     steps:
       - checkout
       - run: go test -v -cover -coverprofile cover.out ./...
+      - store_artifacts:
+          path: ~/cover.out
+          destination: cover.out
