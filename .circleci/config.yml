@@ -12,5 +12,4 @@ jobs:
           name: Generate code coverage
           command: go tool cover -html=/tmp/cover.out -o /tmp/cover.html
       - store_artifacts:
-          path: /tmp/cover.out
-          destination: cover.out
+          path: /tmp/cover.html
