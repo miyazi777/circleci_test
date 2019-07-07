@@ -1,11 +1,16 @@
 version: 2.1
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/golang:1.12
     steps:
       - checkout
-      - run: go test -v -cover -coverprofile /tmp/cover.out ./...
+      - run:
+          name: Test
+          command: go test -v -cover -coverprofile /tmp/cover.out ./...
+      - run:
+          name: Generate code coverage
+          command: go tool cover -html=/tmp/cover.out -o /tmp/cover.html
       - store_artifacts:
           path: /tmp/cover.out
           destination: cover.out
