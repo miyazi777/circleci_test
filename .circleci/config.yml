@@ -5,7 +5,7 @@ jobs:
       - image: circleci/golang:1.12
     steps:
       - checkout
-      - run: go test -v -cover -coverprofile cover.out ./...
+      - run: go test -v -cover -coverprofile /tmp/cover.out ./...
       - store_artifacts:
-          path: ~/cover.out
+          path: /tmp/cover.out
           destination: cover.out
